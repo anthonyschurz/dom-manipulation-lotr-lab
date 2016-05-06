@@ -19,16 +19,44 @@ var buddies = [
 var lands = ['The Shire', 'Rivendell', 'Mordor'];
 var body = document.querySelector('body');
 
+<--------------------------------------------------------------------------->
+
+
+var score = document.querySelector("#score_123");
+score.addEventListener("click", function() {
+  console.log("this has been clicked");
+}
+)
+
+
+score.addEventListener("click", function(e){
+  console.log("event is ", e);
+})
+
+
+
+var searchBox = document.querySelector(".header-search-scope");
+var octocat = document.createElement("span");
+octocat.className = "mega-octicon";
+octocat.className += " octicon-mark-github";
+octocat.setAttribute("id", "wdi-octocat");
+searchBox.appendChild(octocat);
+searchBox;
+
 
 // Part 1
 
 
 function makeMiddleEarth() {
-  // create a section tag with an id of middle-earth
-  // inside, add each land as an article tag
-  // inside each article tag include an h1 with the name of the land
-  // append middle-earth to your document body
-}
+  var middleEarth = document.createElement("section");
+  middleEarth.setAttribute("id", "middle-earth");
+  for (var i = 0; i < lands.length; i++){
+  var art = document.createElement("article");
+  art.innerHTML = '<h1>' + lands[i] + '</h1>';
+  middleEarth.appendChild(art);
+  }
+  body.appendChild("middle-earth");
+  }
 
 makeMiddleEarth();
 
@@ -38,7 +66,15 @@ makeMiddleEarth();
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the second article tag on the page)
   // give each hobbit a class of hobbit
+
+  var shireFinder = document.querySelector("article");
+  for (var i = 0; i < buddies.length; i++){
+    var listItem = shireFinder.innerHTML.createElement("ul");
+    listItem.innerHTML = "<li>" + buddies[i] + "</li>";
+  }
 }
+
+makeHobbits();
 
 
 // Part 3
